@@ -20,6 +20,55 @@ Built for the **Stellar Hackathon 2025**.
 
 ---
 
+## User Flow
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                        USER FLOW                            │
+│   [ Paste Tweet URL ]  →  [ Connect Freighter Wallet ]      │
+└─────────────────────────┬───────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────────┐
+│                    BACKEND (FastAPI)                         │
+│                                                             │
+│  ① Tweet Scraper (Twitter API v2)                           │
+│     └→ Extract: text, image URL, author handle              │
+│                                                             │
+│  ② Token Metadata Builder                                   │
+│     └→ Name: first 3 words of tweet                        │
+│     └→ Symbol: auto-generated abbreviation                  │
+│     └→ Supply: default 1B                                   │
+│     └→ Image: pixel-art transform → upload to IPFS          │
+│                                                             │
+│  ③ Stellar Token Deployer                                   │
+│     └→ Create Issuing Account (keypair)                     │
+│     └→ Create Distribution Account                          │
+│     └→ Set Trustline                                        │
+│     └→ Issue Asset via Horizon API                          │
+│     └→ (Optional) Deploy Soroban SAC                        │
+│     └→ Write SEP-1 TOML metadata                            │
+└─────────────────────────┬───────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────────┐
+│                  STELLAR NETWORK                             │
+│                                                             │
+│   Horizon API  ←→  Stellar Testnet / Mainnet               │
+│   Asset Issued → On-chain address returned                  │
+│   (< 5 seconds total)                                       │
+└─────────────────────────┬───────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────────┐
+│                  FRONTEND (Next.js)                         │
+│                                                             │
+│   → Show: Token name, symbol, supply, contract address      │
+│   → Show: Pixel-art logo                                    │
+│   → Link to Stellar Expert / StellarX for trading          │
+│   → Share card (Twitter-ready image)                        │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## Tech Stack
 
 | Layer | Tech |
