@@ -1,18 +1,18 @@
-# 🐦 Dexploy — Tweet to Token on Stellar
+# Twoken — Tweet to Token on Stellar
 
 > Paste a tweet. Get a token. In under 5 seconds.
 
-**Dexploy** is a tweet-to-token platform built on the [Stellar](https://stellar.org) blockchain. Drop any tweet URL, and Dexploy automatically extracts the content, generates token metadata, pixel-art transforms the image, and deploys a live Stellar asset — all in one click.
+**Twoken** is a tweet-to-token platform built on the [Stellar](https://stellar.org) blockchain. Drop any tweet URL, and Twoken automatically extracts the content, generates token metadata, pixel-art transforms the image, and deploys a live Stellar asset — all in one click.
 
 Built for the **Stellar Hackathon 2025**.
 
 ---
 
-## ✨ What It Does
+## What It Does
 
 | Step | What Happens |
 |---|---|
-| 1. Paste tweet URL | Dexploy scrapes tweet text + image via Twitter API v2 |
+| 1. Paste tweet URL | Twoken scrapes tweet text + image via Twitter API v2 |
 | 2. Auto-generate metadata | Token name, symbol, and supply are derived from the tweet |
 | 3. Pixel-art transform | The tweet image is converted to a pixel-art logo and pinned to IPFS |
 | 4. Deploy on Stellar | A native Stellar asset is issued via Horizon API in real time |
@@ -20,7 +20,7 @@ Built for the **Stellar Hackathon 2025**.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Tech |
 |---|---|
@@ -36,11 +36,11 @@ Built for the **Stellar Hackathon 2025**.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 User pastes Tweet URL
-        │
+        |
         ▼
 ┌───────────────────┐
 │   Next.js Frontend │  ← Connect Freighter Wallet
@@ -73,13 +73,13 @@ User pastes Tweet URL
          │
          ▼
 ┌───────────────────┐
-│  Token Live ✅     │  ← Address + Explorer link returned
+│  Token Live        │  ← Address + Explorer link returned
 └───────────────────┘
 ```
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -92,8 +92,8 @@ User pastes Tweet URL
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/dexploy-stellar
-cd dexploy-stellar
+git clone https://github.com/yourusername/twoken
+cd twoken
 ```
 
 ### 2. Backend setup
@@ -134,7 +134,7 @@ Connect your Freighter wallet (set to **Testnet**), paste any tweet URL, and hit
 
 ---
 
-## 🔑 Environment Variables
+## Environment Variables
 
 ### Backend (`.env`)
 
@@ -155,10 +155,10 @@ NEXT_PUBLIC_STELLAR_NETWORK=testnet
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-dexploy-stellar/
+twoken/
 ├── backend/
 │   ├── main.py               # FastAPI app + routes
 │   ├── scraper.py            # Twitter API v2 scraper
@@ -182,9 +182,9 @@ dexploy-stellar/
 
 ---
 
-## 🧪 How Token Deployment Works (Stellar)
+## How Token Deployment Works (Stellar)
 
-Dexploy uses Stellar's **native asset issuance** — no smart contract required for the base flow:
+Twoken uses Stellar's **native asset issuance** — no smart contract required for the base flow:
 
 1. **Issuing Account** — a new keypair generated per token; holds the mint authority
 2. **Distribution Account** — funded via the user's connected Freighter wallet
@@ -198,7 +198,7 @@ All done via a single Stellar transaction (multi-op), confirmed in ~5 seconds.
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [x] Tweet scraping + metadata extraction
 - [x] Pixel-art image transform
@@ -212,7 +212,7 @@ All done via a single Stellar transaction (multi-op), confirmed in ~5 seconds.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 PRs welcome. Open an issue first for major changes.
 
@@ -224,12 +224,12 @@ git push origin feature/your-feature
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
-Tokens deployed via Dexploy are experimental assets on the Stellar network. This project is built for hackathon purposes. Do your own research before trading any token.
+Tokens deployed via Twoken are experimental assets on the Stellar network. This project is built for hackathon purposes. Do your own research before trading any token.
 
 ---
 
-## 📄 License
+## License
 
-MIT © 2025 — Built with ☀️ for the Stellar Hackathon
+MIT 2025
